@@ -1,3 +1,5 @@
+from logger import logger
+
 nested_list = [
     ['a', 'b', 'c'],
     ['d', 'e', 'f', 'h', False],
@@ -38,21 +40,23 @@ def flat_generator(lists):
         cursor += 1
 
 
-def flat_iterator():
-    for item in FlatIterator(nested_list):
+@logger
+def flat_iterator(lists):
+    for item in FlatIterator(lists):
         print(item)
 
 
-def flatgenerator():
-    for item in flat_generator(nested_list):
+@logger
+def flatgenerator(lists):
+    for item in flat_generator(lists):
         print(item)
 
-
-def flatlist():
-    flat_list = [item for item in FlatIterator(nested_list)]
+@logger
+def flatlist(lists):
+    flat_list = [item for item in FlatIterator(lists)]
     print(flat_list)
 
 if __name__ == "__main__":
-    flat_iterator()
-    # flatgenerator()
-    # flatlist()
+    flat_iterator(nested_list)
+    flatgenerator(nested_list)
+    flatlist(nested_list)
