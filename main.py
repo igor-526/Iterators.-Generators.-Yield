@@ -41,22 +41,22 @@ def flat_generator(lists):
 
 
 @logger
-def flat_iterator(lists):
+def flat_iterator(lists, path):
     for item in FlatIterator(lists):
         print(item)
 
 
 @logger
-def flatgenerator(lists):
+def flatgenerator(lists, path):
     for item in flat_generator(lists):
         print(item)
 
 @logger
-def flatlist(lists):
+def flatlist(lists, path):
     flat_list = [item for item in FlatIterator(lists)]
     print(flat_list)
 
 if __name__ == "__main__":
-    flat_iterator(nested_list)
-    flatgenerator(nested_list)
-    flatlist(nested_list)
+    flat_iterator(nested_list, path = 'logs.txt')
+    # flatgenerator(nested_list, path = 'logs.txt')
+    # flatlist(nested_list, path = 'logs.txt')
